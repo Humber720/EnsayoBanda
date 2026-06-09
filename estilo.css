@@ -1,244 +1,130 @@
 /* ==========================
-RESET GENERAL
+RESET
 ========================== */
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
 }
 
 /* ==========================
-BODY
+BODY (CLAVE DEL PROBLEMA SOLUCIONADO)
 ========================== */
 body {
   min-height: 100vh;
-  margin: 0;
-  padding: 16px;
 
   display: flex;
   justify-content: center;
-  align-items: center; /* 👈 CENTRADO REAL */
 
-  background: linear-gradient(-45deg, #0f172a, #1e3a8a, #2563eb, #06b6d4);
-  background-size: 400% 400%;
-  animation: fondoAnimado 12s ease infinite;
+  /* ❌ NO forzar centrado vertical extremo */
+  align-items: flex-start;
 
-  overflow-x: hidden;
-  overflow-y: auto;
-  color: white;
-}
+  background-image: radial-gradient(circle at 35% 25%, #da7fff 0, #9165ff 25%, #4148e1 50%, #002ca6 75%, #001572 100%);
 
-@keyframes fondoAnimado {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  padding: 90px 16px 70px; /* espacio real para header/footer */
 }
 
 /* ==========================
-TÍTULOS
+HEADER
 ========================== */
-h1 {
-  font-size: clamp(22px, 5vw, 30px);
-  text-align: center;
-}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-h2 {
-  font-size: clamp(14px, 3vw, 18px);
+  background-color: #191970;
+  color: #f5f5ee;
+  padding: 15px;
   text-align: center;
-  opacity: 0.9;
-}
-
-.subtitulo {
-  text-align: center;
-  font-weight: bold;
-  margin: 10px 0 18px;
-  color: #fde047;
+  z-index: 1000;
 }
 
 /* ==========================
-CAMPOS
+FOOTER
 ========================== */
-input,
-select,
-textarea {
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: #0d0349;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* ==========================
+CONTENEDOR (ESTO EVITA ESTIRAMIENTO)
+========================== */
+.container {
   width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-  margin: 8px 0 14px;
-  outline: none;
-  font-size: 16px;
-  background: rgba(255,255,255,0.9);
-  color: #111;
-}
+  max-width: 420px;
 
-textarea {
-  resize: none;
-  height: 80px;
+  /* clave */
+  margin: auto;
 }
 
 /* ==========================
-OPCIONES SI / NO (MEJORADAS)
+CAJA
 ========================== */
-.opciones {
+.login-box {
+  background: #4B0082;
+  padding: 25px;
+  border-radius: 10px;
+
+  /* clave anti-estirado */
+  width: 100%;
+}
+
+/* ==========================
+FORM
+========================== */
+form {
   display: flex;
-  gap: 12px;
-  margin: 12px 0;
-}
-
-.opciones label {
-  flex: 1;
-  cursor: pointer;
-}
-
-.opciones input {
-  display: none;
-}
-
-.opciones span {
-  display: block;
-  text-align: center;
-  padding: 14px;
-  border-radius: 14px;
-  font-weight: bold;
-  background: rgba(255,255,255,0.15);
-  border: 2px solid rgba(255,255,255,0.2);
-  transition: 0.3s ease;
-  user-select: none;
-}
-
-/* EFECTO HOVER */
-.opciones span:hover {
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.25);
+  flex-direction: column;
 }
 
 /* ==========================
-SI (VERDE PRO)
+INPUTS
 ========================== */
-.opciones input[value="SI"]:checked + span {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  box-shadow: 0 0 18px rgba(34,197,94,0.6);
-  border: 2px solid #86efac;
-  transform: scale(1.05);
-  color: white;
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
 }
 
 /* ==========================
-NO (ROJO PRO)
-========================== */
-.opciones input[value="NO"]:checked + span {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  box-shadow: 0 0 18px rgba(239,68,68,0.6);
-  border: 2px solid #fca5a5;
-  transform: scale(1.05);
-  color: white;
-}
-
-/* ==========================
-BOTÓN PRINCIPAL
+BOTÓN
 ========================== */
 button {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 14px;
-  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  padding: 10px;
+  font-size: 1rem;
+  background: #800000;
   color: white;
-  font-weight: bold;
-  font-size: 16px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 button:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.1);
+  background: #b42f07;
 }
 
 /* ==========================
-MENSAJE
+RESPONSIVE REAL
 ========================== */
-#mensaje {
-  margin-top: 15px;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* ==========================
-RESPONSIVE
-========================== */
-@media (max-width: 768px) {
-  form {
-    width: 95vw;
-  }
-}
-
 @media (max-width: 480px) {
-  .opciones {
-    flex-direction: column;
-  }
-}
-/* ==========================
-FONDO CON BURBUJAS
-========================== */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-
-  background:
-    radial-gradient(circle at 15% 25%, rgba(255,255,255,0.25), transparent 60px),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18), transparent 70px),
-    radial-gradient(circle at 50% 70%, rgba(255,255,255,0.20), transparent 80px),
-    radial-gradient(circle at 20% 85%, rgba(255,255,255,0.15), transparent 90px),
-    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.22), transparent 75px);
-
-  animation: burbujasFlotantes 14s ease-in-out infinite;
-  opacity: 0.7;
-}
-/* animación suave */
-@keyframes burbujasFlotantes {
-  0%   { transform: translateY(0px) scale(1); }
-  50%  { transform: translateY(-25px) scale(1.08); }
-  100% { transform: translateY(0px) scale(1); }
-}
-
-form {
-  width: min(95vw, 600px);
-
-  /* ❌ elimina cualquier altura fija */
-  height: auto;
-
-  /* ✔ evita deformación */
-  max-height: 90vh;
-  overflow-y: auto;
-
-  margin: auto;
-
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(15px);
-  border-radius: 22px;
-  padding: 20px;
-
-  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-}
-
-@media (max-width: 768px) {
   body {
-    align-items: center;
+    padding: 80px 10px 60px;
+  }
+
+  .login-box {
+    padding: 18px;
   }
 }
