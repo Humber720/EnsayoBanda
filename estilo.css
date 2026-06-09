@@ -40,20 +40,6 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
-/* ==========================
-FORMULARIO
-========================== */
-form {
-  width: min(95vw, 600px);
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(15px);
-  border-radius: 22px;
-  padding: clamp(18px, 4vw, 28px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-  animation: aparecer 0.8s ease;
-}
-
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -208,7 +194,6 @@ RESPONSIVE
 /* ==========================
 FONDO CON BURBUJAS
 ========================== */
-/* capa de burbujas */
 body::before {
   content: "";
   position: fixed;
@@ -217,11 +202,11 @@ body::before {
   pointer-events: none;
 
   background:
-    radial-gradient(circle at 15% 25%, rgba(255,255,255,0.25) 0px, transparent 60px),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18) 0px, transparent 70px),
-    radial-gradient(circle at 50% 70%, rgba(255,255,255,0.20) 0px, transparent 80px),
-    radial-gradient(circle at 20% 85%, rgba(255,255,255,0.15) 0px, transparent 90px),
-    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.22) 0px, transparent 75px);
+    radial-gradient(circle at 15% 25%, rgba(255,255,255,0.25), transparent 60px),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18), transparent 70px),
+    radial-gradient(circle at 50% 70%, rgba(255,255,255,0.20), transparent 80px),
+    radial-gradient(circle at 20% 85%, rgba(255,255,255,0.15), transparent 90px),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.22), transparent 75px);
 
   animation: burbujasFlotantes 14s ease-in-out infinite;
   opacity: 0.7;
@@ -233,17 +218,16 @@ body::before {
   100% { transform: translateY(0px) scale(1); }
 }
 
-h1, h2, .subtitulo, form, #mensaje {
-  position: relative;
-  z-index: 2;
-}
 form {
-  width: min(95vw, 600px);
-  margin: 20px auto;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(15px);
-  border-radius: 22px;
-  padding: clamp(18px, 4vw, 28px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-  animation: aparecer 0.8s ease;
+width: min(95vw, 600px);
+min-height: 85vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+background: rgba(255,255,255,0.12);
+backdrop-filter: blur(15px);
+border-radius: 22px;
+padding: clamp(18px, 4vw, 28px);
+box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
