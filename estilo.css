@@ -19,18 +19,18 @@ BODY
 body {
   min-height: 100vh;
   margin: 0;
-  padding: clamp(10px, 3vw, 25px);
+  padding: 16px;
 
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; /* 👈 clave para evitar estiramiento */
 
   background: linear-gradient(-45deg, #0f172a, #1e3a8a, #2563eb, #06b6d4);
   background-size: 400% 400%;
   animation: fondoAnimado 12s ease infinite;
 
   overflow-x: hidden;
-  overflow-y: auto; /* 🔥 IMPORTANTE */
+  overflow-y: auto;
   color: white;
   position: relative;
 }
@@ -219,15 +219,26 @@ body::before {
 }
 
 form {
-width: min(95vw, 600px);
-min-height: 85vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
+  width: min(95vw, 600px);
 
-background: rgba(255,255,255,0.12);
-backdrop-filter: blur(15px);
-border-radius: 22px;
-padding: clamp(18px, 4vw, 28px);
-box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  /* ❌ NO usar altura fija */
+  height: auto;
+
+  /* ✔ evita efecto estirado */
+  margin: 20px 0;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 22px;
+  padding: 20px;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+
+@media (max-width: 480px) {
+  form {
+    width: 95vw;
+    padding: 16px;
+  }
 }
