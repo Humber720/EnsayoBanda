@@ -1,3 +1,6 @@
+/* ==========================
+RESET GENERAL
+========================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,12 +8,20 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+html {
+  font-size: 16px;
+}
+
+/* ==========================
+BODY
+========================== */
 body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+
+  padding: clamp(8px, 3vw, 20px);
 
   background: linear-gradient(-45deg, #4f46e5, #06b6d4, #22c55e, #f59e0b);
   background-size: 400% 400%;
@@ -23,16 +34,22 @@ body {
   100% {background-position: 0% 50%;}
 }
 
-/* CONTENEDOR DEL FORMULARIO */
+/* ==========================
+FORMULARIO (CLAVE DEL TAMAÑO)
+========================== */
 form {
-  width: 100%;
-  max-width: 420px;
+  width: min(95vw, 600px);
+  max-width: 600px;
+
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(12px);
   border-radius: 20px;
-  padding: 20px;
+
+  padding: clamp(15px, 4vw, 25px);
+
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   color: white;
+
   animation: aparecer 0.8s ease;
 }
 
@@ -41,15 +58,17 @@ form {
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* TITULOS */
+/* ==========================
+TÍTULOS
+========================== */
 h1 {
-  font-size: 22px;
+  font-size: clamp(20px, 5vw, 28px);
   text-align: center;
   color: #fff;
 }
 
 h2 {
-  font-size: 14px;
+  font-size: clamp(14px, 3vw, 18px);
   text-align: center;
   opacity: 0.9;
 }
@@ -59,69 +78,94 @@ h2 {
   font-weight: bold;
   margin: 10px 0 15px;
   color: #fde047;
+  font-size: clamp(14px, 3.5vw, 18px);
 }
 
-/* CAMPOS */
-input, select, textarea {
+/* ==========================
+CAMPOS
+========================== */
+input,
+select,
+textarea {
   width: 100%;
-  padding: 10px;
+  padding: 14px;
   border-radius: 10px;
   border: none;
-  margin-top: 5px;
-  margin-bottom: 12px;
+  margin: 6px 0 14px;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 textarea {
   resize: none;
-  height: 70px;
+  height: 75px;
 }
 
-/* OPCIONES SI / NO */
+/* ==========================
+OPCIONES SI / NO
+========================== */
 .opciones {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin: 10px 0;
 }
 
 .opciones label {
   flex: 1;
-  text-align: center;
-  padding: 12px;
-  border-radius: 12px;
   cursor: pointer;
-  background: rgba(255,255,255,0.2);
-  transition: 0.3s;
-  font-weight: bold;
 }
 
-/* ocultar radio */
 .opciones input {
   display: none;
 }
 
-/* efecto hover */
-.opciones label:hover {
+.opciones span {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-weight: bold;
+  transition: 0.3s ease;
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+/* SI */
+.opciones input[value="SI"]:checked + span {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 0 15px rgba(34,197,94,0.6);
   transform: scale(1.05);
-  background: rgba(255,255,255,0.35);
+  border: 2px solid #86efac;
 }
 
-/* cuando está seleccionado */
-.opciones input:checked + span {
-  background: #22c55e;
+/* NO */
+.opciones input[value="NO"]:checked + span {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 0 15px rgba(239,68,68,0.6);
+  transform: scale(1.05);
+  border: 2px solid #fca5a5;
 }
 
-/* BOTÓN */
+.opciones span:hover {
+  transform: scale(1.03);
+  background: rgba(255,255,255,0.25);
+}
+
+/* ==========================
+BOTÓN
+========================== */
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: none;
   border-radius: 12px;
   background: linear-gradient(90deg, #22c55e, #06b6d4);
   color: white;
   font-weight: bold;
   cursor: pointer;
+  font-size: 16px;
   transition: 0.3s;
 }
 
@@ -130,50 +174,51 @@ button:hover {
   filter: brightness(1.2);
 }
 
-/* MENSAJE */
+/* ==========================
+MENSAJE
+========================== */
 #mensaje {
   margin-top: 15px;
   text-align: center;
   font-weight: bold;
 }
 
-/* 📱 RESPONSIVE TABLET */
+/* ==========================
+TABLET
+========================== */
 @media (max-width: 768px) {
   form {
-    max-width: 90%;
-    padding: 18px;
+    width: 95vw;
+  }
+}
+
+/* ==========================
+CELULAR (IMPORTANTE)
+========================== */
+@media (max-width: 480px) {
+  form {
+    width: 98vw;
+    border-radius: 15px;
+    padding: 15px;
   }
 
   h1 {
     font-size: 20px;
   }
-}
 
-/* 📱 RESPONSIVE CELULAR */
-@media (max-width: 480px) {
-  form {
-    max-width: 100%;
-    border-radius: 15px;
-    padding: 15px;
+  button {
+    font-size: 16px;
+    padding: 14px;
   }
 
   .opciones {
     flex-direction: column;
   }
-
-  .opciones label {
-    margin-bottom: 8px;
-  }
-
-  h1 {
-    font-size: 18px;
-  }
-
-  button {
-    font-size: 14px;
-  }
 }
 
+/* ==========================
+MODAL (SI LO USAS)
+========================== */
 .modal {
   display: none;
   position: fixed;
@@ -228,57 +273,4 @@ button:hover {
 @keyframes pop {
   from {transform: scale(0.8);}
   to {transform: scale(1);}
-}
-/*Boton SI O NO*/
-.opciones {
-  display: flex;
-  gap: 15px;
-  margin: 10px 0;
-}
-
-/* cada botón */
-.opciones label {
-  flex: 1;
-  cursor: pointer;
-}
-
-/* ocultar radio */
-.opciones input {
-  display: none;
-}
-
-/* diseño base del botón */
-.opciones span {
-  display: block;
-  text-align: center;
-  padding: 14px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.15);
-  color: white;
-  font-weight: bold;
-  transition: 0.3s ease;
-  border: 2px solid transparent;
-  user-select: none;
-}
-
-/* 🟢 SI seleccionado */
-.opciones input[value="SI"]:checked + span {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  box-shadow: 0 0 15px rgba(34,197,94,0.6);
-  transform: scale(1.05);
-  border: 2px solid #86efac;
-}
-
-/* 🔴 NO seleccionado */
-.opciones input[value="NO"]:checked + span {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  box-shadow: 0 0 15px rgba(239,68,68,0.6);
-  transform: scale(1.05);
-  border: 2px solid #fca5a5;
-}
-
-/* efecto hover */
-.opciones span:hover {
-  transform: scale(1.03);
-  background: rgba(255,255,255,0.25);
 }
