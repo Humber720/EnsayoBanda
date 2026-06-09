@@ -23,7 +23,7 @@ body {
 
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* 👈 clave para evitar estiramiento */
+  align-items: center; /* 👈 CENTRADO REAL */
 
   background: linear-gradient(-45deg, #0f172a, #1e3a8a, #2563eb, #06b6d4);
   background-size: 400% 400%;
@@ -32,7 +32,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   color: white;
-  position: relative;
 }
 
 @keyframes fondoAnimado {
@@ -221,11 +220,14 @@ body::before {
 form {
   width: min(95vw, 600px);
 
-  /* ❌ NO usar altura fija */
+  /* ❌ elimina cualquier altura fija */
   height: auto;
 
-  /* ✔ evita efecto estirado */
-  margin: 20px 0;
+  /* ✔ evita deformación */
+  max-height: 90vh;
+  overflow-y: auto;
+
+  margin: auto;
 
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(15px);
@@ -235,10 +237,8 @@ form {
   box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-
-@media (max-width: 480px) {
-  form {
-    width: 95vw;
-    padding: 16px;
+@media (max-width: 768px) {
+  body {
+    align-items: center;
   }
 }
