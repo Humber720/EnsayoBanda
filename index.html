@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Convocatoria Banda de Música UE Jupapina</title>
-  <link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-<div class="background">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+    <meta charset="UTF-8">
 
-  <div class="contenedor">
+    <!-- IMPORTANTE PARA CELULARES -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Banda de Música UE Jupapina</title>
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
     <h1>🎺 Banda de Música UE Jupapina</h1>
     <h2>Prof. Humberto Yupanqui C.</h2>
 
     <p class="subtitulo">Convocatoria - 1er Ensayo</p>
+
     <form id="formulario">
-    <label>¿Asistirá al ensayo convocado?</label>
-    <div class="opciones">
-    <label>
-        <input type="radio" name="asistencia" value="SI" required>
-        <span>SI</span>
-    </label>
-    <label>
-        <input type="radio" name="asistencia" value="NO">
-        <span>NO</span>
-    </label>
-    </div>
 
-      <label>Nombre del estudiante:</label>
-      <input type="text" id="nombre" required placeholder="Escriba su nombre">
+        <label>¿Asistirá al ensayo convocado?</label>
 
-      <label>Curso:</label>
-      <select id="curso" required>
-        <option value="">Seleccione un curso</option>
-        <option>5TO DE PRIMARIA</option>
-        <option>6TO DE PRIMARIA</option>
-        <option>1RO DE SECUNDARIA</option>
-        <option>3RO DE SECUNDARIA</option>
-        <option>4TO DE SECUNDARIA</option>
-        <option>5TO DE SECUNDARIA</option>
-        <option>6TO DE SECUNDARIA</option>
-      </select>
+        <div class="opciones">
+            <label>
+                <input type="radio" name="asistencia" value="SI" required>
+                <span>SI</span>
+            </label>
 
-      <label>Nro Celular:</label>
-      <textarea id="comentario" placeholder="Ej: 78945612 | comentario opcional si NO asistira"></textarea>
+            <label>
+                <input type="radio" name="asistencia" value="NO">
+                <span>NO</span>
+            </label>
+        </div>
 
-      <button type="submit">Enviar confirmación</button>
+        <label>Nombre del estudiante:</label>
+        <input type="text" id="nombre" required placeholder="Escriba su nombre">
+
+        <label>Curso:</label>
+        <select id="curso" required>
+            <option value="">Seleccione un curso</option>
+            <option>5TO DE PRIMARIA</option>
+            <option>6TO DE PRIMARIA</option>
+            <option>1RO DE SECUNDARIA</option>
+            <option>3RO DE SECUNDARIA</option>
+            <option>4TO DE SECUNDARIA</option>
+            <option>5TO DE SECUNDARIA</option>
+            <option>6TO DE SECUNDARIA</option>
+        </select>
+
+        <label>Nro Celular:</label>
+        <textarea id="comentario" placeholder="Ej: 78945612 | comentario opcional si NO asistirá"></textarea>
+
+        <button type="submit">Enviar confirmación</button>
+
     </form>
-    <div id="mensaje"></div>
-  </div>
 
-  <script src="ensayo.js"></script>
+    <div id="mensaje"></div>
+
+    <script src="ensayo.js"></script>
+
 </body>
 </html>
